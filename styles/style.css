@@ -1,0 +1,140 @@
+/* body { Selecciona todo el body
+    color: green;
+} */
+
+h1 {
+    /*Selecciona todos los h1 del documento*/
+    color: red;
+    font-style: italic;
+}
+
+#titulo {
+    /*Selecciona el elemento con id "titulo"*/
+    color: green;
+}
+
+p {
+    /*Selecciona todos los p*/
+    color: blue;
+}
+
+p.texto {
+    /*Selecciona los elementos p que tengan la clase "texto"*/
+    color: crimson;
+}
+
+p.otraClase {
+    /*Selecciona los elementos p que tengan la clase "otraClase"*/
+    color: mediumslateblue
+}
+
+/*Acá vemos que el color este violeta se aplicó a los dos parrafos que
+tienen la clase "otraClase", es decir, importa mucho el orden en que 
+escribimos CSS, igual que con HTML. En lineas generales lo que escribamos al final tiene
+prioridad sobre lo anterior*/
+
+/*Si volvemos al html vemos este div que contiene este p h2 y h3, vamos
+a hacer que se aplique estilo solo a lo que hay dentro del div*/
+
+div p {
+    /*Selecciona los p que esten dentro de un div, es decir que sean 
+    hijos*/
+    color: aquamarine;
+}
+
+div h2 {
+    /*Selecciona los h2 que esten dentro de un div, es decir que sean 
+    hijos*/
+    color: brown;
+}
+
+div h2, div h3 {
+    /*Selecciona h2 y h3 que esten dentro de un div, es decir que sean 
+    hijos*/
+    color: chartreuse;
+}
+
+
+/*Propiedad COLOR*/
+.color {
+    /*Como vimos la propiedad color aplica color a la funete nuestros 
+    elementos*/
+    /* color: red;      Cualquiera de estas formas hace lo mismo 
+    color: #f00;        El primer digito selecciona el rojo, el segundo 
+                        el verde, y el tercero el azul
+                        Cuanto mas cerca de la f mas blanco es, para 
+                        crear grises los 3 valores deben ser iguales   
+    color: #ff0000;     Esto puede entenderse como que el primer digito 
+                        del primer par indica el valor entero y el
+                        segundo el decimal.
+
+    color: rgb(255,0,0);    Se utilizan valores desde 0 a 255
+    */
+
+    color: #bbb;
+
+}
+
+/*Propiedad BORDER que le asigna un borde a los elementos html*/
+
+.border {
+    /*Primero demosle un poco de estilo al subtitulo*/
+    width: 350px;
+    
+    /*Desde acá las porpiedades para el borde*/
+    /* border: 5px red outset; -> Primero se indica el grosor del borde, 
+    luego el color, por ultimo el tipo de borde*/
+    border-width: 10px;
+    border-color: red;
+    border-style: outset;
+    /*groove, ridge, inset, outset dan efecto tridimensional*/
+    /*Proipiedad para redondear las esquinas*/
+    border-radius: 15px;
+}
+
+/*Estuvimos metiendo valores a las propiedades, veamos entonces las 
+medidas*/
+.medidasAbsolutas,
+.medidasRelativas_1,
+.medidasRelativas_2 {
+    width: 350px;
+}
+
+.medidasAbsolutas {
+    /*Medida fija, no cambia*/
+    border: 10px blue solid;
+    /*
+    cm centimetros
+    mm milimetros
+    in pulgadas
+    pt 
+    pc 
+    
+    Estas medidas no son recomendadas porque como dice su nombre son 
+    absolutas, fijas. No cambian.
+    */
+}
+
+/*Medidas relativas mas comunes */
+.medidasRelativas_1 {
+    /*Relacionada con el tamaño de la fuente que está utilizando la 
+    etiqueta*/
+    font-size: 30px;
+    border: 2em tomato solid;
+}
+
+.medidasRelativas_2 {
+    font-size: 10px;
+    border: 2em tomato solid;
+}
+
+.medidasRelativas_3 {
+    /*Relacionda con el tamaño de la fuente de la etiqueta raiz html*/
+    font-size: 50px;
+    /*Por mas que yo cambie el tamaño de la fuente, el valor es relativo 
+    al tamaño de la etiqueta raiz*/
+    border: 1rem green solid;
+}
+
+
+
