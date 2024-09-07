@@ -2,6 +2,8 @@
     color: green;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+
 h1 {
     /*Selecciona todos los h1 del documento*/
     color: red;
@@ -48,7 +50,8 @@ div h2 {
     color: brown;
 }
 
-div h2, div h3 {
+div h2,
+div h3 {
     /*Selecciona h2 y h3 que esten dentro de un div, es decir que sean 
     hijos*/
     color: chartreuse;
@@ -80,7 +83,7 @@ div h2, div h3 {
 .border {
     /*Primero demosle un poco de estilo al subtitulo*/
     width: 350px;
-    
+
     /*Desde acá las porpiedades para el borde*/
     /* border: 5px red outset; -> Primero se indica el grosor del borde, 
     luego el color, por ultimo el tipo de borde*/
@@ -136,5 +139,148 @@ medidas*/
     border: 1rem green solid;
 }
 
+/*Propiedad Background*/
 
+#fondo {
+    /* background-color: rgba(255, 0, 0,1); El "a" indica la transparencia del fondo.
+    Existe la propiedad opacity con la que se puede establecer la opacidad (transparencia) del
+    fondo, pero aplica al elemento completo, no solo al fondo.
+    */
 
+    height: 400px;
+    /* background-image: url(../img/logo_vsc.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+    /*Tambien se pueden establecer todos los valores en una sola propiedad, salvo el height*/
+    background: #f00 url(../img/logo_vsc.png) no-repeat center center/200px;
+    /*el primer center centra en forma horizontal, el segundo en vertical, luego el tamaño de la imagen que va precedido por una "/" */
+}
+
+/*Propiedad Margin*/
+
+.margen {
+    background-color: greenyellow;
+    margin: 50px 20px 10px 50px;
+    /*Arriba, derecha, abajo, izquierda*/
+    /*Se pueden utilizar 3 valores que corresponden a arriba, ambos costados, abajo. Por ejemplo: margin: 50px 20px 10px; */
+    /*Se pueden utiliar 2 valores que corresponden a los margenes verticales y horizontales, en ese orden.*/
+    /*Se puede utilizar 1 valor que corresponde a los 4 lados*/
+    /*El padding agrega un espacio desde el borde hacia el interior del elemento. Se comporta igual que el margin*/
+    padding: 30px 15px 20px 10px;
+    border: solid 2px black;
+    height: 100px;
+    width: 50px;
+    overflow: scroll;
+    /*Por defecto viene visible, que lo ahce visible. Se puede establecer hidden, que va a ocultar
+    todo el contenido que "sobresale" del elemento (ojo, lo oculta, no lo borra).
+    Tambien se puede utilizar el scroll que coloca las barritas que nos permiten recorrer el elemento.*/
+
+    /*Todo lo que vimos hasta acá del margin, paddin, etc. conforma lo que se denomina "boxmodel" o "modelo de cajas"
+    de CSS, boxmodel es como se posiciona nuestro elemendo dentro del docuemnto html. Boxmodel aplica a absolutamente
+    todos los elementos del documento html, incluso a los que no tienen ningun estilo definido.*/
+
+    /*Cuando asignamos un width, estamos asignando el ancho que va a tener el contenido de nuestra etiqueta, es decir, no tiene en cuenta
+    el padding, el border ni el margin. Entonces si queremos calcular el ancho total de nuestro elemento debemos sumar todos los valores.
+    Por ejemplo: width + 2*padding + 2*border*
+    */
+
+    /*Existe la propiedad outline que es un contorno que se coloca por fuera del borde y antes del
+    margin. Se configura igual que el border
+    */
+    outline: 1px red solid;
+
+}
+
+/*Propiedades de texto*/
+
+.textProp_1 {
+    text-align: center;
+    /*Text-align sirve para ubicar el texto en el elemento, centrado, a la izquierda, a la derecha
+    o justificado. Tal como en el word.*/
+}
+
+.textProp_2 {
+    color: #f00;
+    text-align: justify;
+    text-decoration: underline;
+    text-shadow: 5px 3px 5px black;
+    /*El primer valor corresponde a la derecha, el segundo a abajo, el tercero el blur.*/
+
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: "Whisper", cursive;
+    /*Con CSS podemos importar funtes externas, por ejemplo desde google fonts.
+    El import está en la línea 5 de este código.*/
+}
+
+/*Propiedades de los links*/
+#anchor {
+    text-decoration: none;
+    /*Se pueden aplicar las propiedades de texto*/
+}
+
+/* Los links pueden tener cuatro estados:
+1. link: Es el estado por defecto, cuando el usuario no ha hecho clic en él.
+2. visited: Es el estado cuando el usuario ha hecho clic en él.
+3. hover: Es el estado cuando el usuario pasa el cursor por encima de él.
+4. active: Es el estado cuando el usuario hace clic en él y mantiene el clic.
+Para que funcionen deben estar en ese orden en el código. Puede faltar alguno
+pero el orden debe mantenerse.
+Los estados se establecen a través de pseudoclases.
+*/
+
+a:link {
+    color: brown
+}
+
+a:visited {
+    color: green
+}
+
+a:hover {
+    color: blue;
+    font-size: 10px;
+}
+
+a:active {
+    color: red;
+    font-size: 30px;
+}
+
+/*A todos los estados se le pueden agragar las propiedades que estuvimos viendo.*/
+
+/*Propiedades de las tablas*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /*border-collapse establece el comportamiento del borde.*/
+}
+
+th,
+td {
+    border: solid 1px #666;
+    padding: 5px;
+}
+
+th {
+    background-color: brown;
+    color: white;
+}
+
+tr:nth-child(even) {
+    /*Si este selector con una pseudoclase se agrega después del hover, va a dejar de funcionar para las filas impares.
+    Para que funcione en todas hay que colocarlo antes de tr:hover{}*/
+
+    /*nth-child es una pseudoclase que sirve para seleccionar hijos de la clase, que tengan determinada caracterísitca,
+    en este caso odd y even.*/
+    background-color: yellow
+}
+
+tr:hover {
+    /*La pseudoclase hover modifica el comportamiento del elemento cuando el mouse pasa por encima
+    de él*/
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+}
