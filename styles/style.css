@@ -284,3 +284,320 @@ tr:hover {
     color: white;
     cursor: pointer;
 }
+
+/* Propiedades de DISPLAY */
+
+.div_1 {
+ background-color: chocolate;   
+}
+
+.div_2 {
+    background-color: yellow;
+}
+
+.span_1 {
+    background-color: aqua;
+}
+
+.span_2 {
+    background-color: blueviolet;
+}
+
+/*Como se ve, los div ocupan todo el ancho de la pantalla, los span 
+solo ocupan el espacio que ocupe el texto, podemos modificar eso*/
+
+.inline {
+    /* a los elementos con clase inline le asignamos un display: inline
+    a este display no se le pueden asignar propiedades width y height
+    ni tampoco margenes verticales*/
+    display: inline;
+    
+}
+
+.block {
+    /* a los elementos con clase block le asignamos un display: block
+    este display muestra los elementos en líneas independientes, se le
+    puede asignar width, height y márgenes verticales*/
+    display: block;
+    visibility: visible;
+}
+
+.span_3 {
+    display: block;
+    background-color: red;
+    color: white;
+    max-width: 300px; /*Se le puede asignar un ancho máximo*/
+}
+
+.inline-block {
+    /*La propiedad inline-block tiene un comportamiento que mezcla
+    características de las anteriores, muestra los elementos en la misma
+    linea y se le puede asignar la propiedad de width, height y márgenes
+    verticales*/
+    display: inline-block;
+    background-color: #555;
+    height: 30px;
+    width: 500px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* Propiedad POSITION */
+#position {
+    color: blue;
+    left: 20px;/*indica la distancia que se tiene que mover desde la izquierda*/
+    top:25px;/*indica la distancia que se tiene que mover desde arriba */
+    position: sticky;
+    /*  static: es el que viene por defecto en todos los elementos html
+        relative: es una posicion relativa con respecto a donde debería
+        estar posicionado el elemento. Puede superponerse con otros
+        elementos.
+        fixed: indica la posicion relativa con respecto a lo que estamos
+        viendo en la pantalla y se desplaza si scroleamos.
+        absolute: indica la posicion relativa pero con respecto al 
+        elemento padre mas cercano que tenga, si no tiene padre se 
+        relaciona con el body, no se desplaza si scroleamos.
+        sticky: Es una mezcla entre relative y fixed
+        */
+}
+
+/* Propiedad FLOAT, esta propiedad hace "flotar" dentro de un elemento,
+los posiciona */
+
+.float {
+    height: 300px;
+}
+
+.left {
+    float: left;
+}
+
+.img-left {
+    height: 250px;
+}
+
+.right {
+    float: right;
+    width: 200px;
+    text-align: justify;
+}
+
+#p-float {
+    color: coral;
+}
+
+#p-float::first-letter {
+    color: red;
+    font-size: 2rem;
+}
+
+/* Propiedad CENTER */
+
+.center {
+    /*Siempre hay que asignarle un ancho*/
+    width: 400px;   
+    margin: 0% auto;
+    background-color: tomato;
+    text-align: center;
+    padding: 10px 0px; 
+}
+
+#p-centrado::before {
+    content: "👉";
+}
+
+#p-centrado::after {
+    content: "👈";
+}
+
+nav {
+    display: flex;/* A grandes rasgos flex hace que las cajas que contiene se
+    comporten como celdas de tablas, por lo que podemos adaptar su comportamiento
+    le da flexibilidad a los elementos para alterar su tamaño y distribuir el
+    espacio entre ellos*/
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#h3Navbar {
+    background-color: aquamarine;
+    color: violet;
+    font-size: 30px;
+}
+
+li {
+    display: inline-block;
+    padding: 0% 15px;
+}
+
+/* Animaciones */
+
+#animacion {
+    background-color: forestgreen;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    animation: redondeo 3s 1s infinite;
+            /* nombre, timepo que dura cada etapa, demora para empezar, modo*/
+}
+
+@keyframes redondeo {
+    /*Es la propiedad CSS que nos permite crear la animacion,
+    indico etapas y que quiero que haga en cada una*/
+    0% {
+        border-radius: 0 0 0 0;
+        background-color: green;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        border-radius: 50% 0 0 0;
+        background-color: orange;
+        transform: rotate(45deg);
+    }
+
+    50% {
+        border-radius: 50% 50% 0 0;
+        background-color: aqua;
+        transform: rotate(90deg);
+    }
+
+    75% {
+        border-radius: 50% 50% 50% 0;
+        background-color: yellow;
+        transform: rotate(135deg);
+    }
+
+    100% {
+        border-radius: 50%;
+        background-color: blueviolet;
+        transform: rotate(180deg);
+    }
+}
+
+/* Propiedad Transition */
+
+#suelo {
+    border-bottom: 30px chocolate solid;
+    /* Si quisieramos, podriamos darle un ancho cualquiera 
+    max-width: 600px;
+    overflow: hidden; */
+}
+
+#macana {
+    /* background-color: #555; */
+    height: 6rem;
+    width: 10rem;
+    background-image: url(../img/macana.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#suelo:hover #macana {
+    margin-left: 100%;
+    transition: linear 3s;
+    /*ease: este es el valor por defecto. Tiene un comienzo lento,
+    luego rápido y termina de nuevo lentamente.
+    linear: la misma velocidad durante toda la duración de la transición.
+    ease-in: efecto de transición con comienzo lento.
+    ease-out: efecto de transición con comienzo rápido y final lento.
+    ease-in-out: efecto de transición con comienzo y final lento;más rápido en medio. Equivalente a cubic-bezier(0.42,0,0.58,1).
+    cubic-bezier(n,n,n,n): define tus propios valores para la curva de Bezier. Cada valor es entre 0 y 1.
+    https://cubic-bezier.com/#.17,.67,.83,.67
+
+    initial: establece esta propiedad a su valor por defecto.
+    inherit: hereda esta propiedad del elemento padre.*/
+}
+
+/* GRID */
+
+.grid_container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    margin: 10% auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:  50% 50%;
+    grid-template-areas:
+    "area_1 area_2"
+    "area_3 area_4"
+}
+
+#div_1 {
+    grid-area: area_1;
+    background-color: #f00;
+    padding: 10%;
+}
+
+#div_2 {
+    grid-area: area_2;
+    background-color: green;
+}
+
+#div_3 {
+    grid-area: area_3;
+    background-color: blueviolet;
+}
+
+#div_4 {
+    grid-area: area_4;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#img_grid {
+    width: 70%;
+    height: 80%;
+}
+
+#btnVolver {
+    display: block;
+    background-color: antiquewhite;
+    margin: 1rem auto;
+    border: .15rem #aaa outset;
+    border-radius: .25rem;
+    width: 10rem;
+    height: 2rem;
+    cursor: pointer;
+
+}
+
+#btnVolver:hover {
+    background-color: cadetblue;
+    box-shadow: 0.1rem 0.2rem 0.25rem rgba(0, 0, 0, 0.5);
+    transition: ease 0.7s;
+
+}
+
+#btnVolver:active {
+    border: .15rem #aaa inset;
+}
+
+#btnVolver a {
+    text-decoration: none;
+}
+
+#aBtn:active {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
